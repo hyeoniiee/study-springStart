@@ -17,7 +17,7 @@ class ItemRepositoryTest {
     @AfterEach
     void afterEach() {
         itemRepository.clearStore();
-    }
+    } // 테스트 한개가 끝날때마다 깨끗하게 지워줌 -> 중복이 생길수 있음
 
     @Test
     void save() {
