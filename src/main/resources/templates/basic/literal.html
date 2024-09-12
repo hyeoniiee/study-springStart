@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head> <body> <h1>리터럴</h1> <ul>
+    <!--주의! 다음 주석을 풀면 예외가 발생함-->
+    <!--<li>"hello world!" = <span th:text="hello world!"></span></li>-->
+    <li>'hello' + ' world!' = <span th:text="'hello' + ' world!'"></span></li>
+    <li>'hello world!' = <span th:text="'hello world!'"></span></li>
+    <li>'hello ' + ${data} = <span th:text="'hello ' + ${data}"></span></li>
+    <li>리터럴 대체 |hello ${data}| = <span th:text="|hello ${data}|"></span></li>
+</ul>
+</body>
+</html>
+
+<!--
+리터럴은 소스 코드상에 고정된 값을 말하는 용어.
+
+타임리프에서 문자 리터럴은 항상 작은 따옴표 (' ') 로 감싸야 한다. -> <span th:text="'hello'">
+하지만 문자를 항상 ' ' 로 감싸는 것은 매우 귀찮은 일이므로 공백 없이 쭉 이어진다면 하나의 의미있는 토큰으로 인지해서 다음과 같이 ' '  생략 가능
+A-Z / a-z / 0-9 / . / - / _  -> <span th:text="hello">
+
+예제)
+1. 오류 : <span th:text="hello world!"></span>  -> 문자 리터럴은 원칙상 ' ' 로 감싸야 한다.
+            중간에 공백이 있어서 하나의 의미있는 토큰으로도 인식되지 않는다.
+2. 수정 : <span th:text="'hello world!'"></span>  -> 이렇게 ' '로 감싸면 정상 동작한다.
+
+리터럴 대체 Literal substitutions
+<span th:text="|hello ${data}|"> : 마치 템플릿을 사용하는 것 처럼 편리하다.
+-->
